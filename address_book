@@ -1,0 +1,54 @@
+def create_contact():
+    name1 = input("enter the contact name")
+    phone = input("enter the phone number ")
+    email = input ("enter the email")
+
+    return {
+    "name" : name1,
+    "phone" : phone,
+    "email" : email
+}
+
+address_book = []
+
+def add_contact(contact1):
+    address_book.append(contact1)
+    print(f"{contact1['name']} was added to the contact book")
+
+def view_contact():
+    for contact2 in address_book:
+        print("Name: " + contact2["name"] + "Phone:" + contact2["phone"] + "Email: " + contact2["email"]
+              )
+
+def delete_contact(name2):
+    for i, contact3 in enumerate(address_book):
+        if contact3['name'] == name2:
+            del address_book[i]
+            print(f"{name2} was removed from address book.")
+            return
+        print(f"no contact name {name2} found")
+while True:
+    print("\n ------- Address Book------------")
+    print("1. ------- Add Address Book------------")
+    print("2.------- View Address Book------------")
+    print("3. ------- Delete Address Book------------")
+    print("4.------- Quit------------")
+    option = input("Choose an option")
+
+
+    if option == "1":
+        contact = create_contact()
+        add_contact(contact)
+    elif option == "2":
+        view_contact()
+    elif option == "3":
+        name = input("enter the name of the contact to delete")
+        delete_contact(name)
+
+
+    elif option == "4":
+        print ("Goodbye")
+        break
+
+
+create_contact()
