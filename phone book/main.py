@@ -1,35 +1,3 @@
-"""
-import tkinter as tk
-import json
-import re
-
-phonebook ={}
-
-def add_contact(name , phone):
-    if not re.fullmatch(r'[A-Za-z0-9_]+', name ):
-        return 'Invalid name'
-    if not re.fullmatch(r'\d{10}', phone):
-        return 'invalid phone number'
-    phonebook[name] = phone
-    with open ('phonebook.json', 'w') as f:
-        json.dump(phonebook , f)
-
-def view_contact():
-    with open('phonebook.json', 'r')as f:
-        phonebook1 = json.load(f)
-    return phonebook1
-
-root = tk.Tk()
-
-add_contact_button = tk.Button(root , text ='Add Contact', command= lambda: add_contact(input("Name"), input("phone number")))
-add_contact_button.pack()
-
-
-view_contact_button = tk.Button(root , text= "View Contacts", command= view_contact())
-view_contact_button.pack()
-
-root.mainloop()
-"""
 
 import tkinter as tk
 import json
